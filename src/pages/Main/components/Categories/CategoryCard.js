@@ -4,7 +4,8 @@ import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
 import { RouterLink } from "components/RouterLink";
-import arrowIcon from 'assets/images/right-arrow.svg';
+import { getBaseUrl } from "constant";
+import arrowIcon from 'assets/images/link-arrow.svg';
 
 const sxStyles = {
   item: (theme) =>({
@@ -54,7 +55,7 @@ export const CategoryCard = (props) => {
   const { lang } = useParams();
   const { t } = useTranslation('main');
 
-  const link = `/${lang}/${name}`;
+  const link = `/${getBaseUrl(lang)}/${name}`;
 
   return (
     <Box component="li" sx={sxStyles.item}>

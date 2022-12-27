@@ -1,14 +1,13 @@
 import React from 'react';
 import { Outlet } from "react-router-dom";
 import { Box } from "@mui/material";
+
+import { ScrollToTop } from "hooks";
+
 import { Header } from "../Header";
 import { Container } from "../Container";
 
 const sxStyles = {
-  grid: {
-    display: 'grid',
-    templateRows: 'auto 1fr auto',
-  },
   footer: {
     m: '1rem',
     textAlign: 'center',
@@ -17,8 +16,10 @@ const sxStyles = {
 
 export const PageLayout = (props) => {
   const { children, sx } = props;
+
   return (
-    <Box sx={sxStyles.grid}>
+    <>
+      <ScrollToTop />
       <Header />
 
       <Container component="main" sx={sx}>
@@ -29,6 +30,6 @@ export const PageLayout = (props) => {
       <Box component="footer" sx={sxStyles.footer}>
         © {new Date().getFullYear()}
       </Box>
-    </Box>
+    </>
   )
 }

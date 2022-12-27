@@ -16,38 +16,50 @@ export const theme = createTheme({
       A100: '#D4D9E2',
       A200: '#A0A0A0',
       A700: '#2B2F43',
-    }
+    },
   },
   typography: {
     body1: {
       fontSize: '0.75rem',
       fontWeight: 400,
       lineHeight: '1.5rem',
+      letterSpacing: 0,
     },
     body2: {
       fontSize: '1rem',
       fontWeight: 400,
       lineHeight: '1.875rem',
+      letterSpacing: 0,
+    },
+    body3: {
+      fontSize: '0.875rem',
+      fontWeight: 400,
+      lineHeight: '1.1875rem',
+      letterSpacing: 0,
     },
     h1: {
       fontSize: '2.5rem',
       fontWeight: 600,
       lineHeight: '3.5rem',
+      letterSpacing: 0,
     },
     h2: {
       fontSize: '1.85rem',
       fontWeight: 700,
       lineHeight: '2.5rem',
+      letterSpacing: 0,
     },
     h3: {
       fontSize: '1.25rem',
       fontWeight: 700,
       lineHeight: '2rem',
+      letterSpacing: 0,
     },
     h4: {
       fontSize: '1rem',
       fontWeight: 700,
       lineHeight: '2rem',
+      letterSpacing: 0,
     },
   },
   components: {
@@ -62,6 +74,18 @@ export const theme = createTheme({
         }
       `,
     },
+    MuiButton: {
+      styleOverrides: {
+        containedPrimary: {
+          backgroundColor: '#D72130',
+
+          '&:hover': {
+            backgroundColor: '#C80515',
+          },
+        },
+      }
+    }
   },
 });
-console.log(theme);
+
+// console.log(theme);

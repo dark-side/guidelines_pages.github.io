@@ -1,0 +1,1 @@
+export { TabPageContent } from './TabPageContent';

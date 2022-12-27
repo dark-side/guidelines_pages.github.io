@@ -1,0 +1,1 @@
+export { DefaultPageContent } from './DefaultPageContent';

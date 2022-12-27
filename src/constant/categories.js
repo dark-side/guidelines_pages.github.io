@@ -14,6 +14,12 @@ import contributeIcon from "../assets/images/categories/contribute.svg";
 import thanksIcon from "../assets/images/categories/thanks.svg";
 import donateIcon from "../assets/images/categories/donate.svg";
 
+export const categoryTypes = {
+  default: 'default',
+  tab: 'tab',
+  tabAccordion: 'tabAccordion',
+}
+
 export const categoryKeys = {
   purpose: {
     key: 'space-purpose',

@@ -6,10 +6,11 @@ import {
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
 import { theme } from "./theme";
-import { Main } from "./pages/Main";
 import './i18';
 import { BASE_URL, routers } from './constant';
 import { LangRedirect } from "./components/LangRedirect";
+import { Main } from "./pages/Main";
+import { CategoryPage } from "./pages/CategoryPage";
 
 import '@fontsource/open-sans/300.css';
 import '@fontsource/open-sans/500.css';
@@ -21,12 +22,16 @@ const router = createBrowserRouter([
     element: <LangRedirect /> ,
   },
   {
+    path: 'guidelines_pages.github.io/',
+    element: <LangRedirect /> ,
+  },
+  {
     path: BASE_URL,
     element: <Main /> ,
   },
   {
     path: routers.category,
-    element: <div>category</div>,
+    element: <CategoryPage /> ,
   },
 ]);
 

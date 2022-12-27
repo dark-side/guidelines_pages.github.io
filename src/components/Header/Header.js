@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, IconButton, Link } from "@mui/material";
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 
+import { getBaseUrl, LANGS } from "constant";
 import logoIcon from 'assets/images/logo.svg';
 import langIcon from 'assets/images/lang.svg';
 
@@ -52,7 +53,8 @@ const sxStyles = {
     }
   }),
   btn: {
-    fontSize: '0.75rem'
+    fontSize: '0.75rem',
+    fontWeight: 700,
   },
   langBox: (theme) => ({
     display: 'flex',
@@ -63,18 +65,44 @@ const sxStyles = {
 
 export const Header = () => {
   const navigate = useNavigate();
+  const location = useLocation();
+  const { lang } = useParams();
   const { i18n } = useTranslation();
 
+  const baseUrl = `/${getBaseUrl(lang)}`;
+
   const handleChangeLang = async (event) => {
-    await i18n.changeLanguage(event.target.value);
-    // TODO change to dynamic router
-    navigate(`/${event.target.value}`);
-  }
+    const newLang = event.target.value;
+
+    if (newLang !== LANGS.ua) {
+      const path = location.pathname.replace(`/${LANGS.ua}`, `/${LANGS.en}`);
+
+      await i18n.changeLanguage(newLang);
+
+      navigate(path);
+
+      return;
+    }
+
+    const path = location.pathname.replace(`/${LANGS.en}`, `/${LANGS.ua}`);
+
+    await i18n.changeLanguage(newLang);
+
+    navigate(path);
+  };
+
+  useEffect(() => {
+    const getLang = async (lang) => handleChangeLang({ target: { value: lang } }) ;
+
+    if (lang === LANGS.ua) {
+      void getLang(LANGS.ua);
+    }
+  }, []);
 
   return (
     <Box sx={sxStyles.wrapHeader}>
       <Container sx={sxStyles.header} component="header">
-        <Link sx={sxStyles.logo} component={RouterLink} to="/">
+        <Link sx={sxStyles.logo} component={RouterLink} to={baseUrl}>
           <img src={logoIcon} alt="logo"/>
 
           <span>
@@ -86,11 +114,25 @@ export const Header = () => {
         <Box sx={sxStyles.langBox}>
           <img src={langIcon} alt="change language icon"/>
 
-          <IconButton size="small" sx={sxStyles.btn} onClick={handleChangeLang} aria-label="eng" value="en">
+          <IconButton
+            size="small"
+            sx={sxStyles.btn}
+            onClick={handleChangeLang}
+            aria-label="en"
+            value={LANGS.en}
+            color={lang === LANGS.en ? 'primary' : 'inherit'}
+          >
             EN
           </IconButton>
           |
-          <IconButton size="small" sx={sxStyles.btn} onClick={handleChangeLang} aria-label="ua" value="ua">
+          <IconButton
+            size="small"
+            sx={sxStyles.btn}
+            onClick={handleChangeLang}
+            aria-label="ua"
+            value={LANGS.ua}
+            color={lang === LANGS.ua ? 'primary' : 'inherit'}
+          >
             UA
           </IconButton>
         </Box>

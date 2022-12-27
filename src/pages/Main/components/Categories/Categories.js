@@ -33,12 +33,12 @@ const sxStyles = {
       gridTemplateColumns: 'repeat(2, 1fr)',
     },
 
-    ['@media (min-width:780px)']: {
+    '@media (min-width:780px)': {
       gridTemplateColumns: 'repeat(3, 1fr)',
     },
 
 
-    ['@media (min-width:1210px)']: {
+    '@media (min-width:1210px)': {
       gridTemplateColumns: 'repeat(4, 1fr)',
     },
   })

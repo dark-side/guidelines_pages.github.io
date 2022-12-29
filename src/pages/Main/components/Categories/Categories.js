@@ -2,8 +2,9 @@ import React from 'react';
 import { useTranslation } from "react-i18next";
 import { Box, Typography } from "@mui/material";
 
+import { categoriesInfo } from "constant";
+
 import { CategoryCard }  from "./CategoryCard";
-import { categories } from "../../../../constant/categories";
 
 const sxStyles = {
   box: (theme) => ({
@@ -52,7 +53,7 @@ export const Categories = () => {
       <Typography component="h2" variant="h2" sx={sxStyles.title}>{t('categoriesTitle')}</Typography>
 
       <Box component="ul" sx={sxStyles.list}>
-        {categories.map((cat) => (
+        {categoriesInfo.map((cat) => (
           <CategoryCard key={cat.key} item={cat} />
         ))}
       </Box>

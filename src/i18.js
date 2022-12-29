@@ -9,6 +9,9 @@ import overviewEn from 'translations/en/overview.json';
 import roadmapEn from 'translations/en/roadmap.json';
 import architectureEn from 'translations/en/architecture.json';
 import deliveryEn from 'translations/en/delivery.json';
+import webEn from 'translations/en/web.json';
+import desktopEn from 'translations/en/desktop.json';
+import mobileEn from 'translations/en/mobile.json';
 import dataEn from 'translations/en/data.json';
 import projectEn from 'translations/en/project.json';
 import reportEn from 'translations/en/report.json';
@@ -24,6 +27,9 @@ import overviewUa from 'translations/ua/overview.json';
 import roadmapUa from 'translations/ua/roadmap.json';
 import architectureUa from 'translations/ua/architecture.json';
 import deliveryUa from 'translations/ua/delivery.json';
+import webUa from 'translations/en/web.json';
+import desktopUa from 'translations/en/desktop.json';
+import mobileUa from 'translations/en/mobile.json';
 import dataUa from 'translations/ua/data.json';
 import projectUa from 'translations/ua/project.json';
 import reportUa from 'translations/ua/report.json';
@@ -44,6 +50,9 @@ i18n
         roadmap: roadmapEn,
         architecture: architectureEn,
         delivery: deliveryEn,
+        web: webEn,
+        desktop: desktopEn,
+        mobile: mobileEn,
         data: dataEn,
         project: projectEn,
         report: reportEn,
@@ -60,6 +69,9 @@ i18n
         roadmap: roadmapUa,
         architecture: architectureUa,
         delivery: deliveryUa,
+        web: webUa,
+        desktop: desktopUa,
+        mobile: mobileUa,
         data: dataUa,
         project: projectUa,
         report: reportUa,

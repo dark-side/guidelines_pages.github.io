@@ -1,12 +1,16 @@
+import dataIcon from "assets/images/categories/data.svg";
+
 import { categoryKeys, categoryTypes } from "./categories";
 
 export const dataCat = {
+  icon: dataIcon,
   key: categoryKeys.data.key,
   type: categoryTypes.tab,
   title: categoryKeys.data.name,
   tabs: [
     {
       tabTitle: 'tabTitle[1]',
+      videoTitle: 'videoTitle[1]',
       videoId: 'videoId[1]',
       videoDescription: 'videoDescription[1]',
       links: [
@@ -22,6 +26,7 @@ export const dataCat = {
     },
     {
       tabTitle: 'tabTitle[2]',
+      videoTitle: 'videoTitle[2]',
       videoId: 'videoId[2]',
       videoDescription: 'videoDescription[2]',
       links: [
@@ -33,6 +38,7 @@ export const dataCat = {
     },
     {
       tabTitle: 'tabTitle[3]',
+      videoTitle: 'videoTitle[3]',
       videoId: 'videoId[3]',
       videoDescription: 'videoDescription[3]',
       links: [

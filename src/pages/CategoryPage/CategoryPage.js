@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { useParams } from "react-router-dom";
 
@@ -11,6 +11,7 @@ import { getBaseUrl } from "constant";
 
 import { DefaultPageContent } from "./components/DefaultPageContent";
 import { TabPageContent } from "./components/TabPageContent";
+import { TabAccordionPageContent } from './components/TabAccordionPageContent';
 
 const sxStyles = {
   title: {
@@ -36,10 +37,20 @@ export const CategoryPage = () => {
   ];
 
   const renderCategoryContent = () => {
+    if (!currentCat) {
+      return null;
+    }
+
     if (currentCat.type === categoryTypes.tab) {
       return (
         <TabPageContent category={currentCat} />
       );
+    }
+
+    if (currentCat.type === categoryTypes.tabAccordion) {
+      return (
+        <TabAccordionPageContent category={currentCat} />
+      )
     }
 
     return (

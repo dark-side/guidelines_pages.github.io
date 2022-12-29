@@ -1,9 +1,13 @@
+import projectIcon from "assets/images/categories/project.svg";
+
 import { categoryKeys, categoryTypes } from "./categories";
 
 export const project = {
+  icon: projectIcon,
   key: categoryKeys.project.key,
   type: categoryTypes.default,
   title: categoryKeys.project.name,
+  videoTitle: 'videoTitle',
   videoId: 'videoId',
   videoDescription: 'videoDescription',
   links: [

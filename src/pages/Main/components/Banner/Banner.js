@@ -25,6 +25,7 @@ const sxStyles = {
     textAlign: 'center',
     maxWidth: '590px',
     mx: 'auto',
+    whiteSpace: 'pre-line',
   }
 }
 

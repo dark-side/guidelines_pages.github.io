@@ -6,6 +6,10 @@ import { useTranslation } from "react-i18next";
 const sxStyles = {
   subTitle: {
     mb: '1rem',
+
+    '&:empty': {
+      display: 'none',
+    }
   },
   desc: {
     m: '1.25rem 0 1.5rem'
@@ -36,7 +40,7 @@ export const VideoContent = (props) => {
       />
 
       <Typography sx={sxStyles.subTitle} variant="body2" fontWeight={700} component="h2">
-        {t('videoTitle', { ns: 'common' })}
+        {t(content.videoTitle || 'videoTitle', { ns: title, defaultValue: '' })}
       </Typography>
 
       <Typography sx={sxStyles.desc} variant="body3" component="p">

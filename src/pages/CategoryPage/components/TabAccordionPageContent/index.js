@@ -1,0 +1,1 @@
+export { TabAccordionPageContent } from './TabAccordionPageContent';

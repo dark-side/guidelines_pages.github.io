@@ -34,6 +34,7 @@ const sxStyles = {
 
     img: {
       mb: '1.5rem',
+      minHeight: '48px',
     },
   }),
   linkArrow: {
@@ -50,19 +51,19 @@ const sxStyles = {
 
 export const CategoryCard = (props) => {
   const { item } = props;
-  const { key, name, icon } = item;
+  const { key, title, icon } = item;
 
   const { lang } = useParams();
   const { t } = useTranslation('main');
 
-  const link = `/${getBaseUrl(lang)}/${name}`;
+  const link = `/${getBaseUrl(lang)}/${key}`;
 
   return (
     <Box component="li" sx={sxStyles.item}>
       <Link sx={sxStyles.linkItem} component={RouterLink} to={link}>
         <img src={icon} alt={`${t(key)}`} />
 
-        <Typography component="h3" variant="h3">{t(key)}</Typography>
+        <Typography component="h3" variant="h3">{t(title)}</Typography>
       </Link>
 
       <Link sx={sxStyles.linkArrow} component={RouterLink} to={link} target="_blank">

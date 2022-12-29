@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-import { categoriesInfo, DEFAULT_VIDEO_OPTIONS, getCategoryLink } from "constant";
-import { getNextItemLevel } from "utils";
+import { DEFAULT_VIDEO_OPTIONS, getCategoryLink } from "constant";
+import { getNextEntity } from 'utils';
 import { Container } from "components/Container";
 import { VideoContent } from "components/VideoContent";
 import { NextBlock } from "components/NextBlock";
@@ -26,7 +26,7 @@ export const TabPageContent = (props) => {
   const { t } = useTranslation([category.title, 'main']);
 
   useEffect(() => {
-    const nextItem = getNextItemLevel(categoriesInfo, category);
+    const nextItem = getNextEntity({ currentCategory: category });
 
     setNextCategory(nextItem);
   },[category]);
@@ -50,12 +50,13 @@ export const TabPageContent = (props) => {
       <Tabs
         tabTitles={tabTitles}
         tabContent={(tabData) => {
-          const isLatItem = tabData.currentValue === category.tabs.length - 1;
-          const nextCategoryTitle = isLatItem ? t(nextCategory?.title, { ns: 'main' }) : t(category.tabs[tabData.currentValue + 1].tabTitle, { ns: category.title });
-          const nextCategoryVideoPreview = isLatItem ? '' : t(category.tabs[tabData.currentValue + 1].videoId, { ns: category.title });
+          const isLatsItem = tabData.currentValue === category.tabs.length - 1;
+          const nextEntity = getNextEntity({ currentCategory: category, tabIndex: tabData.currentValue });
+          const nextCategoryTitle = t(nextEntity.title, { ns: isLatsItem ? 'main' : category.title });
+          const nextCategoryVideoPreview = t(nextEntity.videoId, { ns: isLatsItem ? nextEntity.title : category.title });
 
           const handleNext = () => {
-            if (isLatItem) {
+            if (isLatsItem) {
               handleNextItem();
               return;
             }

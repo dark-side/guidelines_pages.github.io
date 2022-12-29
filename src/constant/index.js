@@ -4,6 +4,9 @@ import { overview } from "./overview";
 import { roadmap } from "./roadmap";
 import { architecture } from "./architecture";
 import { delivery } from "./delivery";
+import { web } from './web';
+import { desktop } from './desktop';
+import { mobile } from './mobile';
 import { dataCat } from "./data";
 import { project } from "./project";
 import { report } from "./report";
@@ -37,6 +40,9 @@ export const categoriesInfo = [
   roadmap,
   architecture,
   delivery,
+  web,
+  desktop,
+  mobile,
   dataCat,
   project,
   report,

@@ -97,7 +97,7 @@ export const Header = () => {
     if (lang === LANGS.ua) {
       void getLang(LANGS.ua);
     }
-  }, [lang]);
+  }, []);
 
   return (
     <Box sx={sxStyles.wrapHeader}>

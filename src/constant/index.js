@@ -14,7 +14,7 @@ import { contribute } from "./contribute";
 import { thanks } from "./thanks";
 import { donate } from "./donate";
 
-export const BASE_URL = 'guidelines_pages.github.io/:lang'
+export const BASE_URL = ':lang'
 
 export const routers = {
   category: `${BASE_URL}/:category`,
@@ -30,8 +30,8 @@ export const DEFAULT_VIDEO_OPTIONS = {
   width: '545px',
 };
 
-export const getBaseUrl = (lang) => `guidelines_pages.github.io/${lang}`;
-export const getCategoryLink = (lang, cat) => `guidelines_pages.github.io/${lang}/${cat}`;
+export const getBaseUrl = (lang) => `${lang}`;
+export const getCategoryLink = (lang, cat) => `${lang}/${cat}`;
 
 export const categoriesInfo = [
   purpose,

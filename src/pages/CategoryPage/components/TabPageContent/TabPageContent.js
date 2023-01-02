@@ -62,6 +62,7 @@ export const TabPageContent = (props) => {
             }
 
             tabData.setValue(tabData.currentValue + 1);
+            window.scrollTo(0, 0);
           }
 
           return (

@@ -1,7 +1,8 @@
 import React from 'react';
 import {
-  createBrowserRouter,
-  RouterProvider,
+  HashRouter,
+  Route,
+  Routes,
 } from "react-router-dom";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
@@ -16,13 +17,9 @@ import '@fontsource/open-sans/300.css';
 import '@fontsource/open-sans/500.css';
 import '@fontsource/open-sans/700.css';
 
-const router = createBrowserRouter([
+const routeList = [
   {
     path: '/',
-    element: <LangRedirect /> ,
-  },
-  {
-    path: 'guidelines_pages.github.io/',
     element: <LangRedirect /> ,
   },
   {
@@ -33,13 +30,23 @@ const router = createBrowserRouter([
     path: routers.category,
     element: <CategoryPage /> ,
   },
-]);
+  {
+    path: '*',
+    element: <LangRedirect /> ,
+  },
+]
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <RouterProvider router={router} />
+      <HashRouter>
+        <Routes>
+          {routeList.map((route) => (
+            <Route key={route.path} path={route.path} element={route.element} />
+          ))}
+        </Routes>
+      </HashRouter>
     </ThemeProvider>
   );
 }

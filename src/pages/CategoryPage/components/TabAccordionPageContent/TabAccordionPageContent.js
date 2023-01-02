@@ -17,28 +17,29 @@ const sxStyles = {
 }
 
 export const TabAccordionPageContent = (props) => {
-  const { category } = props;
+  const {category} = props;
 
-  const { lang } = useParams();
+  const {lang} = useParams();
   const navigate = useNavigate();
   const [nextCategory, setNextCategory] = useState();
 
   const [accordionList, setAccordionList] = useState({});
 
-  const { t } = useTranslation([category.title, 'main']);
+  const {t} = useTranslation([category.title, 'main']);
 
   useEffect(() => {
     const nextItem = getNextItemLevel(categoriesInfo, category);
 
     setNextCategory(nextItem);
-  },[category]);
+  }, [category]);
 
   const handleToggleAccordion = (accordionState) => {
     if (!accordionState) {
       setAccordionList({});
 
       return;
-    };
+    }
+    ;
 
     setAccordionList((prevState) => ({
       ...prevState,
@@ -52,22 +53,20 @@ export const TabAccordionPageContent = (props) => {
     }
   };
 
-  const tabTitles = category.tabs.map(({ tabTitle }) => t(tabTitle, { ns: category.title }));
+  const tabTitles = category.tabs.map(({tabTitle}) => t(tabTitle, {ns: category.title}));
 
   return (
-    <>
-      <Tabs
-        tabTitles={tabTitles}
-        tabContent={(tabData) => (
-          <ListAccordion
-            tabData={tabData}
-            category={category}
-            onNextCategory={handleNextCategory}
-            accordionList={accordionList}
-            onToggleAccordion={handleToggleAccordion}
-          />
-        )}
-      />
-    </>
+    <Tabs
+      tabTitles={tabTitles}
+      tabContent={(tabData) => (
+        <ListAccordion
+          tabData={tabData}
+          category={category}
+          onNextCategory={handleNextCategory}
+          accordionList={accordionList}
+          onToggleAccordion={handleToggleAccordion}
+        />
+      )}
+    />
   )
 }

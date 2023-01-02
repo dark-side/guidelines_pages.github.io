@@ -35,6 +35,7 @@ export const ListAccordion = (props) => {
             }
 
             tabData.setValue(tabData.currentValue + 1);
+            window.scrollTo(0, 0);
 
             const updatedList = {
               [category.tabs[tabData.index].list[index].itemTitle]: false,

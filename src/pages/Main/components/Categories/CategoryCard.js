@@ -33,8 +33,8 @@ const sxStyles = {
     borderRadius: '0.25rem',
 
     img: {
-      mb: '1.5rem',
-      minHeight: '48px',
+      mb: '0.5rem',
+      minHeight: '70px',
     },
   }),
   linkArrow: {

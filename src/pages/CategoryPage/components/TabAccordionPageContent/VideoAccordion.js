@@ -10,19 +10,24 @@ import { NextBlock } from 'components/NextBlock';
 
 const sxStyles = {
   container: {
-    maxWidth: '815px',
+    maxWidth: 'calc(100% - 4rem)',
     p: 0,
     mt: '2.5rem'
   },
+  accordionTitle: {
+    display: 'flex',
+    alignItems: 'center',
+  }
 };
 
 const StyledPlusIcon = styled('div', {
   shouldForwardProp: (prop) => prop !== 'isExpanded',
 })(({ theme, isExpanded }) => ({
   position: 'relative',
+  top: '3px',
   width: '10px',
   height: '10px',
-  marginRight: '1.25rem',
+  marginRight: '1rem',
 
   '&:after': {
     content: '""',
@@ -30,6 +35,7 @@ const StyledPlusIcon = styled('div', {
     width: '10px',
     height: '2px',
     backgroundColor: theme.palette.grey.A200,
+
   },
 
   '&:before': {
@@ -55,6 +61,8 @@ const StyledContent = styled('div', {
   }
 
   return {
+    maxWidth: '815px',
+    margin: '0 auto',
     maxHeight: 0,
     overflow: 'hidden',
     transition: 'max-height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
@@ -93,17 +101,21 @@ export const VideoAccordion = (props) => {
   return (
     <Container sx={sxStyles.container}>
       <Box tabIndex="0" role="button" aria-expanded={isExpanded ? "true" : "false"} onClick={handleToggle} >
-        <Box>
-          <Typography>
+        <Box sx={sxStyles.accordionTitle}>
+          <StyledPlusIcon isExpanded={isExpanded} />
+
+          <Typography component="div">
             {t(item.itemTitle, { ns: category.title })}
           </Typography>
         </Box>
 
         <StyledContent isExpanded={isExpanded}>
-          <VideoContent
-            playerOpts={DEFAULT_VIDEO_OPTIONS}
-            content={videoContent}
-          />
+          <Box sx={{ marginTop: '1rem' }}>
+            <VideoContent
+              playerOpts={DEFAULT_VIDEO_OPTIONS}
+              content={videoContent}
+            />
+          </Box>
 
           <NextBlock
             videoId={t(nextCategory?.videoId, { ns: isShowNextCategory ? nextCategory.title : category.title })}

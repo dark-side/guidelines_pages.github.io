@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import YouTube from "react-youtube";
 import { Box, Button, styled, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
+import { useParams } from "react-router-dom";
 
 const sxStyles = {
   subTitle: {
@@ -63,6 +64,7 @@ export const VideoContent = (props) => {
   const { playerOpts, content } = props;
   const { videoId, title, links = []  } = content;
 
+  const { lang, category } = useParams();
   const descText = useRef();
   const [isShowHiddenTextBtn, setIsShowHiddenTextBtn] = useState(false);
   const [isHiddenText, setIsHideText] = useState(false);
@@ -76,11 +78,11 @@ export const VideoContent = (props) => {
       return;
     }
 
-    return () => {
-      setIsShowHiddenTextBtn(false);
-      setIsHideText(false);
-    }
-  },[content.videoDescription]);
+    setIsShowHiddenTextBtn(false);
+    setIsHideText(false);
+
+  },[content.videoDescription, lang, category]);
+
 
   const handleToggleHideText = () => {
     setIsHideText(!isHiddenText);

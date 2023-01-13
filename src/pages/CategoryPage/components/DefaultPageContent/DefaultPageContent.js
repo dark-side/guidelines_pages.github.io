@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import PropTypes from 'prop-types';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-import { DEFAULT_VIDEO_OPTIONS, getCategoryLink } from "constant";
+import { DEFAULT_VIDEO_OPTIONS, getCategoryLink } from 'constant';
 import { getNextEntity } from 'utils';
-import { Container } from "components/Container";
-import { VideoContent } from "components/VideoContent";
-import { NextBlock } from "components/NextBlock";
+import { Container } from 'components/Container';
+import { VideoContent } from 'components/VideoContent';
+import { NextBlock } from 'components/NextBlock';
 
 const sxStyles = {
   container: {
     maxWidth: '815px',
     p: 0,
   },
-}
+};
 
 export const DefaultPageContent = (props) => {
   const { category } = props;
@@ -27,7 +28,7 @@ export const DefaultPageContent = (props) => {
     const nextItem = getNextEntity({ currentCategory: category });
 
     setNextCategory(nextItem);
-  },[category]);
+  }, [category]);
 
   const handleNextCategory = () => {
     if (nextCategory) {
@@ -53,5 +54,13 @@ export const DefaultPageContent = (props) => {
         />
       )}
     </Container>
-  )
-}
+  );
+};
+
+DefaultPageContent.propTypes = {
+  category: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    key: PropTypes.string.isRequired,
+    videoId: PropTypes.string.isRequired,
+  }).isRequired,
+};

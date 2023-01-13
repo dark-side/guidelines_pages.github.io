@@ -1,6 +1,6 @@
-import howToUseIcon from "assets/images/categories/how-to-use.svg";
+import howToUseIcon from 'assets/images/categories/how-to-use.svg';
 
-import { categoryKeys, categoryTypes } from "./categories";
+import { categoryKeys, categoryTypes } from './categories';
 
 export const howToUse = {
   icon: howToUseIcon,
@@ -19,5 +19,5 @@ export const howToUse = {
       labelLink: 'labelLink[2]',
       link: 'https://www.softserveinc.com/en-us',
     }
-  ]
-}
+  ],
+};

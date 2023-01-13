@@ -1,6 +1,6 @@
-import webIcon from "assets/images/categories/web.svg";
+import webIcon from 'assets/images/categories/web.svg';
 
-import { categoryKeys, categoryTypes } from "./categories";
+import { categoryKeys, categoryTypes } from './categories';
 
 export const web = {
   icon: webIcon,
@@ -24,8 +24,8 @@ export const web = {
             {
               labelLink: 'tabTitle[1]list[1]labelLink[2]',
               link: 'https://www.softserveinc.com/en-us',
-            },
-          ]
+            }
+          ],
         },
         {
           itemTitle: 'tabTitle[1]list[2]itemTitle[1]',
@@ -40,8 +40,8 @@ export const web = {
             {
               labelLink: 'tabTitle[1]list[2]labelLink[2]',
               link: 'https://www.softserveinc.com/en-us',
-            },
-          ]
+            }
+          ],
         },
         {
           itemTitle: 'tabTitle[1]list[3]itemTitle[1]',
@@ -56,10 +56,10 @@ export const web = {
             {
               labelLink: 'tabTitle[1]list[3]labelLink[2]',
               link: 'https://www.softserveinc.com/en-us',
-            },
-          ]
+            }
+          ],
         }
-      ]
+      ],
     },
     {
       tabTitle: 'tabTitle[2]',
@@ -77,10 +77,10 @@ export const web = {
             {
               labelLink: 'tabTitle[2]list[1]labelLink[2]',
               link: 'https://www.softserveinc.com/en-us',
-            },
-          ]
-        },
-      ]
-    },
+            }
+          ],
+        }
+      ],
+    }
   ],
-}
+};

@@ -1,16 +1,15 @@
 import React from 'react';
-import { Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
+import { Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
-import { categoriesInfo } from "constant";
-import { categoryTypes } from "constant/categories";
-import { PageLayout } from "components/PageLayout";
-import { Breadcrumbs } from "components/Breadcrumbs";
-import { getBaseUrl } from "constant";
+import { categoriesInfo, getBaseUrl } from 'constant';
+import { categoryTypes } from 'constant/categories';
+import { PageLayout } from 'components/PageLayout';
+import { Breadcrumbs } from 'components/Breadcrumbs';
 
-import { DefaultPageContent } from "./components/DefaultPageContent";
-import { TabPageContent } from "./components/TabPageContent";
+import { DefaultPageContent } from './components/DefaultPageContent';
+import { TabPageContent } from './components/TabPageContent';
 import { TabAccordionPageContent } from './components/TabAccordionPageContent';
 
 const sxStyles = {
@@ -32,7 +31,7 @@ export const CategoryPage = () => {
       url: `/${getBaseUrl(lang)}`,
     },
     {
-      label: t(currentCat.title, { ns: 'main' })
+      label: t(currentCat.title, { ns: 'main' }),
     }
   ];
 
@@ -50,13 +49,13 @@ export const CategoryPage = () => {
     if (currentCat.type === categoryTypes.tabAccordion) {
       return (
         <TabAccordionPageContent category={currentCat} />
-      )
+      );
     }
 
     return (
       <DefaultPageContent category={currentCat} />
     );
-  }
+  };
 
   return (
     <PageLayout>
@@ -68,5 +67,5 @@ export const CategoryPage = () => {
 
       {renderCategoryContent()}
     </PageLayout>
-  )
-}
+  );
+};

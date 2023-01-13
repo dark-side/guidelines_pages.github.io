@@ -1,20 +1,20 @@
-import { purpose } from "./purpose";
-import { howToUse } from "./howToUse";
-import { overview } from "./overview";
-import { roadmap } from "./roadmap";
-import { architecture } from "./architecture";
-import { delivery } from "./delivery";
+import { purpose } from './purpose';
+import { howToUse } from './howToUse';
+import { overview } from './overview';
+import { roadmap } from './roadmap';
+import { architecture } from './architecture';
+import { delivery } from './delivery';
 import { web } from './web';
 import { desktop } from './desktop';
 import { mobile } from './mobile';
-import { dataCat } from "./data";
-import { project } from "./project";
-import { report } from "./report";
-import { contribute } from "./contribute";
-import { thanks } from "./thanks";
-import { donate } from "./donate";
+import { dataCat } from './data';
+import { project } from './project';
+import { report } from './report';
+import { contribute } from './contribute';
+import { thanks } from './thanks';
+import { donate } from './donate';
 
-export const BASE_URL = ':lang'
+export const BASE_URL = ':lang';
 
 export const routers = {
   category: `${BASE_URL}/:category`,
@@ -48,5 +48,5 @@ export const categoriesInfo = [
   report,
   contribute,
   thanks,
-  donate,
-]
+  donate
+];

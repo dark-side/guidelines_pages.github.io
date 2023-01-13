@@ -1,21 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import PropTypes from 'prop-types';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
-import { DEFAULT_VIDEO_OPTIONS, getCategoryLink } from "constant";
+import { getCategoryLink } from 'constant';
 import { getNextEntity } from 'utils';
-import { Container } from "components/Container";
-import { VideoContent } from "components/VideoContent";
-import { NextBlock } from "components/NextBlock";
-import { Tabs } from "components/Tabs";
+import { Tabs } from 'components/Tabs';
 
-const sxStyles = {
-  container: {
-    maxWidth: '815px',
-    p: 0,
-    mt: '2.5rem'
-  },
-}
+import { TabContent } from './TabContent';
 
 export const TabPageContent = (props) => {
   const { category } = props;
@@ -29,7 +21,7 @@ export const TabPageContent = (props) => {
     const nextItem = getNextEntity({ currentCategory: category });
 
     setNextCategory(nextItem);
-  },[category]);
+  }, [category]);
 
   const handleNextItem = () => {
     if (nextCategory) {
@@ -39,48 +31,25 @@ export const TabPageContent = (props) => {
 
   const tabTitles = category.tabs.map(({ tabTitle }) => t(tabTitle, { ns: category.title }));
 
-  const getVideoContent = (index) => ({
-    ...category.tabs[index],
-    title: category.title,
-    videoId: t(category.tabs[index].videoId, { ns: category.title }),
-  });
-
   return (
-    <>
-      <Tabs
-        tabTitles={tabTitles}
-        tabContent={(tabData) => {
-          const isLatsItem = tabData.currentValue === category.tabs.length - 1;
-          const nextEntity = getNextEntity({ currentCategory: category, tabIndex: tabData.currentValue });
-          const nextCategoryTitle = t(nextEntity.title, { ns: isLatsItem ? 'main' : category.title });
-          const nextCategoryVideoPreview = t(nextEntity.videoId, { ns: isLatsItem ? nextEntity.title : category.title });
+    <Tabs
+      tabTitles={tabTitles}
+      TabContent={TabContent}
+      tabContentProps={{
+        category,
+        onNextItem: handleNextItem,
+      }}
+    />
+  );
+};
 
-          const handleNext = () => {
-            if (isLatsItem) {
-              handleNextItem();
-              return;
-            }
-
-            tabData.setValue(tabData.currentValue + 1);
-            window.scrollTo(0, 0);
-          }
-
-          return (
-            <Container sx={sxStyles.container}>
-              <VideoContent
-                playerOpts={DEFAULT_VIDEO_OPTIONS}
-                content={getVideoContent(tabData.index)}
-              />
-
-              <NextBlock
-                videoId={nextCategoryVideoPreview}
-                onNext={handleNext}
-                nextCategoryTitle={nextCategoryTitle}
-              />
-            </Container>
-          )
-        }}
-      />
-    </>
-  )
-}
+TabPageContent.propTypes = {
+  category: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    tabs: PropTypes.arrayOf(
+      PropTypes.shape({
+        tabTitle: PropTypes.string.isRequired,
+      }),
+    ).isRequired,
+  }).isRequired,
+};

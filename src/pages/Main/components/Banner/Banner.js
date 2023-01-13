@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, Typography } from "@mui/material";
+import { Box, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
-import bannerBg from "assets/images/banner-bg.png";
+import bannerBg from 'assets/images/banner-bg.png';
 
 const sxStyles = {
   banner: {
@@ -26,8 +26,8 @@ const sxStyles = {
     maxWidth: '590px',
     mx: 'auto',
     whiteSpace: 'pre-line',
-  }
-}
+  },
+};
 
 export const Banner = () => {
   const { t } = useTranslation('main');
@@ -44,5 +44,5 @@ export const Banner = () => {
         </Typography>
       </Box>
     )
-  )
+  );
 };

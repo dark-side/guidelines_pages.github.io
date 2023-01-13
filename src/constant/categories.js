@@ -2,7 +2,7 @@ export const categoryTypes = {
   default: 'default',
   tab: 'tab',
   tabAccordion: 'tabAccordion',
-}
+};
 
 export const categoryKeys = {
   purpose: {

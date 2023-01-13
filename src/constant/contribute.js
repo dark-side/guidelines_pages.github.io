@@ -1,6 +1,6 @@
-import contributeIcon from "assets/images/categories/contribute.svg";
+import contributeIcon from 'assets/images/categories/contribute.svg';
 
-import { categoryKeys, categoryTypes } from "./categories";
+import { categoryKeys, categoryTypes } from './categories';
 
 export const contribute = {
   icon: contributeIcon,
@@ -19,5 +19,5 @@ export const contribute = {
       labelLink: 'labelLink[2]',
       link: 'https://www.softserveinc.com/en-us',
     }
-  ]
-}
+  ],
+};

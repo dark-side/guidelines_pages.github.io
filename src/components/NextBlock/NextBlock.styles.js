@@ -90,6 +90,6 @@ export const sxStyles = {
     img: {
       display: 'block',
       maxWidth: '20px',
-    }
-  })
-}
+    },
+  }),
+};

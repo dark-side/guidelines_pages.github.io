@@ -1,6 +1,6 @@
-import dataIcon from "assets/images/categories/data.svg";
+import dataIcon from 'assets/images/categories/data.svg';
 
-import { categoryKeys, categoryTypes } from "./categories";
+import { categoryKeys, categoryTypes } from './categories';
 
 export const dataCat = {
   icon: dataIcon,
@@ -21,8 +21,8 @@ export const dataCat = {
         {
           labelLink: 'tabTitle[1]labelLink[2]',
           link: 'https://www.softserveinc.com/en-us',
-        },
-      ]
+        }
+      ],
     },
     {
       tabTitle: 'tabTitle[2]',
@@ -34,7 +34,7 @@ export const dataCat = {
           labelLink: 'tabTitle[2]labelLink[1]',
           link: 'https://www.softserveinc.com/en-us',
         }
-      ]
+      ],
     },
     {
       tabTitle: 'tabTitle[3]',
@@ -46,7 +46,7 @@ export const dataCat = {
           labelLink: 'tabTitle[3]labelLink[1]',
           link: 'https://www.softserveinc.com/en-us',
         }
-      ]
-    },
+      ],
+    }
   ],
-}
+};

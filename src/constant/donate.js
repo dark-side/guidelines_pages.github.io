@@ -1,6 +1,6 @@
-import donateIcon from "assets/images/categories/donate.svg";
+import donateIcon from 'assets/images/categories/donate.svg';
 
-import { categoryKeys, categoryTypes } from "./categories";
+import { categoryKeys, categoryTypes } from './categories';
 
 export const donate = {
   icon: donateIcon,
@@ -19,5 +19,5 @@ export const donate = {
       labelLink: 'labelLink[2]',
       link: 'https://www.softserveinc.com/en-us',
     }
-  ]
-}
+  ],
+};

@@ -6,7 +6,7 @@ export const getNextItemLevel = (list, currentItem) => {
   const nextItem = list[currentIndexItem + 1];
 
   if (!nextItem) {
-    return;
+    return undefined;
   }
 
   return nextItem;
@@ -35,31 +35,27 @@ const getNextCategoryData = (nextCategory) => {
     videoId: nextCategory.videoId,
   };
 };
-const getNextTabData = (nextCategory) => {
-  return {
-    key: nextCategory.key,
-    title: nextCategory.tabTitle,
-    videoId: nextCategory.videoId,
-  };
-}
-const getNextItemData = (nextCategory) => {
-  return {
-    key: nextCategory.key,
-    title: nextCategory.itemTitle,
-    videoId: nextCategory.videoId,
-  };
-};
+const getNextTabData = (nextCategory) => ({
+  key: nextCategory.key,
+  title: nextCategory.tabTitle,
+  videoId: nextCategory.videoId,
+});
+const getNextItemData = (nextCategory) => ({
+  key: nextCategory.key,
+  title: nextCategory.itemTitle,
+  videoId: nextCategory.videoId,
+});
 
 const getNextCategory = (categoryKey, list) => {
   const currentIndexItem = list.findIndex((item) => item.key === categoryKey);
   const nextItem = list[currentIndexItem + 1];
 
   if (!nextItem) {
-    return;
+    return null;
   }
 
   return getNextCategoryData(nextItem);
-}
+};
 
 export function getNextEntity({
   currentCategory,

@@ -1,12 +1,4 @@
-import React from 'react';
-import { useTranslation } from 'react-i18next';
-import { Box, Typography } from '@mui/material';
-
-import { categoriesInfo } from 'constant';
-
-import { CategoryCard } from './CategoryCard';
-
-const sxStyles = {
+export const sxStyles = {
   box: (theme) => ({
     mb: '3rem',
 
@@ -42,20 +34,4 @@ const sxStyles = {
       gridTemplateColumns: 'repeat(4, 1fr)',
     },
   }),
-};
-
-export const Categories = () => {
-  const { t } = useTranslation('main');
-
-  return (
-    <Box sx={sxStyles.box}>
-      <Typography component="h2" variant="h2" sx={sxStyles.title}>{t('categoriesTitle')}</Typography>
-
-      <Box component="ul" sx={sxStyles.list}>
-        {categoriesInfo.map((cat) => (
-          <CategoryCard key={cat.key} item={cat} />
-        ))}
-      </Box>
-    </Box>
-  );
 };

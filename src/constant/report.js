@@ -1,6 +1,6 @@
-import reportIcon from "assets/images/categories/report.svg";
+import reportIcon from 'assets/images/categories/report.svg';
 
-import { categoryKeys, categoryTypes } from "./categories";
+import { categoryKeys, categoryTypes } from './categories';
 
 export const report = {
   icon: reportIcon,
@@ -19,5 +19,5 @@ export const report = {
       labelLink: 'labelLink[2]',
       link: 'https://www.softserveinc.com/en-us',
     }
-  ]
-}
+  ],
+};

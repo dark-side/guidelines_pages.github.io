@@ -1,14 +1,14 @@
 import React from 'react';
-import { Box, Link, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
-import { useParams } from "react-router-dom";
+import { Box, Link, Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router-dom';
 
-import { RouterLink } from "components/RouterLink";
-import { getBaseUrl } from "constant";
+import { RouterLink } from 'components/RouterLink';
+import { getBaseUrl } from 'constant';
 import arrowIcon from 'assets/images/link-arrow.svg';
 
 const sxStyles = {
-  item: (theme) =>({
+  item: (theme) => ({
     position: 'relative',
     backgroundColor: theme.palette.common.white,
     transition: 'background-color 0.3s',
@@ -20,7 +20,7 @@ const sxStyles = {
       },
       'a:last-of-type': {
         zIndex: 100,
-      }
+      },
     },
   }),
   linkItem: (theme) => ({
@@ -45,9 +45,9 @@ const sxStyles = {
 
     img: {
       display: 'block',
-    }
-  }
-}
+    },
+  },
+};
 
 export const CategoryCard = (props) => {
   const { item } = props;
@@ -70,5 +70,5 @@ export const CategoryCard = (props) => {
         <img src={arrowIcon} alt="link to category" />
       </Link>
     </Box>
-  )
-}
+  );
+};

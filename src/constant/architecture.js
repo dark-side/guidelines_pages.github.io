@@ -1,6 +1,6 @@
-import architectureIcon from "assets/images/categories/architecture.svg";
+import architectureIcon from 'assets/images/categories/architecture.svg';
 
-import { categoryKeys, categoryTypes } from "./categories";
+import { categoryKeys, categoryTypes } from './categories';
 
 export const architecture = {
   icon: architectureIcon,
@@ -14,6 +14,6 @@ export const architecture = {
     {
       labelLink: 'labelLink[1]',
       link: 'https://www.softserveinc.com/en-us',
-    },
-  ]
-}
+    }
+  ],
+};

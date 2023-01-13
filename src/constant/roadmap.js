@@ -1,6 +1,6 @@
-import roadmapIcon from "assets/images/categories/roadmap.svg";
+import roadmapIcon from 'assets/images/categories/roadmap.svg';
 
-import { categoryKeys, categoryTypes } from "./categories";
+import { categoryKeys, categoryTypes } from './categories';
 
 export const roadmap = {
   icon: roadmapIcon,
@@ -19,5 +19,5 @@ export const roadmap = {
       labelLink: 'labelLink[2]',
       link: 'https://www.softserveinc.com/en-us',
     }
-  ]
-}
+  ],
+};

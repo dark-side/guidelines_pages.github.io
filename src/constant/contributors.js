@@ -1,4 +1,4 @@
-import Oksana from "../assets/images/contributors/oksana.png";
+import Oksana from '../assets/images/contributors/oksana.png';
 
 export const contributors = [
   {
@@ -12,5 +12,5 @@ export const contributors = [
     name: 'name[2]',
     position: 'position[2]',
     description: 'description[2]',
-  },
-]
+  }
+];

@@ -1,31 +1,21 @@
 import React, { useState } from 'react';
-import { Box, styled, Tab, Tabs as MUITab } from "@mui/material";
+import PropTypes from 'prop-types';
+import {
+  Box, Tab, Tabs as MUITab,
+} from '@mui/material';
 
-const sxStyles = {
-  tabPanel: (theme) => ({
-    position: 'relative',
+import { TabContentWrap } from './TabContentWrap';
+import { sxStyles } from './Tabs.styles';
 
-    '&:before': {
-      content: '""',
-      position: 'absolute',
-      height: '1px',
-      width: '100%',
-      bottom: 0,
-      backgroundColor: theme.palette.grey.A100,
-    }
-  }),
-  tab: {
-    minWidth: '65px',
-    p: '0.5rem',
-    minHeight: 'auto',
-  },
-  tabs: {
-    minHeight: 'auto',
-  }
-};
+function a11yProps(index) {
+  return {
+    id: `tab-${index}`,
+    'aria-controls': `tabpanel-${index}`,
+  };
+}
 
 export const Tabs = (props) => {
-  const { tabTitles, tabContent } = props;
+  const { tabTitles, TabContent, tabContentProps } = props;
 
   const [value, setValue] = useState(0);
 
@@ -44,53 +34,19 @@ export const Tabs = (props) => {
       </Box>
 
       {tabTitles.map((tabTitle, index) => (
-        <TabContent key={`${tabTitle}-content`} value={value} index={index}>
-          {tabContent({ currentValue: value, setValue, index })}
-        </TabContent>
+        <TabContentWrap key={`${tabTitle}-content`} value={value} index={index}>
+          <TabContent
+            tabData={{ currentValue: value, setValue, index }}
+            {...tabContentProps}
+          />
+        </TabContentWrap>
       ))}
-
     </>
   );
-}
+};
 
-function a11yProps(index) {
-  return {
-    id: `tab-${index}`,
-    'aria-controls': `tabpanel-${index}`,
-  };
-}
-
-const StyledTabContent = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'isHidden',
-})(({ isHidden }) => {
-  if (isHidden) {
-    return {
-      position: 'absolute',
-      top: '-100%',
-      opacity: 0,
-      visibility: 'hidden',
-      width: 0,
-      height: 0,
-    }
-  }
-
-  return {}
-});
-
-function TabContent(props) {
-  const { children, value, index, ...other } = props;
-  const isHidden = value !== index;
-
-  return (
-    <StyledTabContent
-      role="tabpanel"
-      isHidden={isHidden}
-      aria-hidden={isHidden ? "true" : "false"}
-      id={`tabpanel-${index}`}
-      aria-labelledby={`tab-${index}`}
-      {...other}
-    >
-      {children}
-    </StyledTabContent>
-  );
-}
+Tabs.propTypes = {
+  tabTitles: PropTypes.arrayOf(PropTypes.string).isRequired,
+  TabContent: PropTypes.elementType.isRequired,
+  tabContentProps: PropTypes.shape({}),
+};

@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box } from '@mui/material';
 
 const styles = {
   maxWidth: 'calc(1220px + 2rem)',
@@ -11,4 +11,4 @@ const styles = {
 
 export const Container = ({ children, sx = {}, ...rest }) => (
   <Box sx={{ ...styles, ...sx }} {...rest}>{children}</Box>
-)
+);

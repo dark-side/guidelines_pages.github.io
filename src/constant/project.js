@@ -1,6 +1,6 @@
-import projectIcon from "assets/images/categories/project.svg";
+import projectIcon from 'assets/images/categories/project.svg';
 
-import { categoryKeys, categoryTypes } from "./categories";
+import { categoryKeys, categoryTypes } from './categories';
 
 export const project = {
   icon: projectIcon,
@@ -19,5 +19,5 @@ export const project = {
       labelLink: 'labelLink[2]',
       link: 'https://www.softserveinc.com/en-us',
     }
-  ]
-}
+  ],
+};

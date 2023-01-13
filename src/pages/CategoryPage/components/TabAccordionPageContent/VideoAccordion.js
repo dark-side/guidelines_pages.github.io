@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Box, styled, Typography } from '@mui/material';
+import PropTypes from 'prop-types';
+import { Box, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
 import { DEFAULT_VIDEO_OPTIONS } from 'constant';
@@ -8,69 +9,7 @@ import { Container } from 'components/Container';
 import { VideoContent } from 'components/VideoContent';
 import { NextBlock } from 'components/NextBlock';
 
-const sxStyles = {
-  container: {
-    maxWidth: 'calc(100% - 4rem)',
-    p: 0,
-    mt: '2.5rem'
-  },
-  accordionTitle: {
-    display: 'flex',
-    alignItems: 'center',
-  }
-};
-
-const StyledPlusIcon = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'isExpanded',
-})(({ theme, isExpanded }) => ({
-  position: 'relative',
-  top: '3px',
-  width: '10px',
-  height: '10px',
-  marginRight: '1rem',
-
-  '&:after': {
-    content: '""',
-    position: 'absolute',
-    width: '10px',
-    height: '2px',
-    backgroundColor: theme.palette.grey.A200,
-
-  },
-
-  '&:before': {
-    content: isExpanded ? 'none' : '""',
-    position: 'absolute',
-    width: '10px',
-    height: '2px',
-    backgroundColor: theme.palette.grey.A200,
-    transform: 'rotate(-90deg)',
-  }
-}));
-
-const StyledContent = styled('div', {
-  shouldForwardProp: (prop) => prop !== 'isExpanded',
-})(({ theme, isExpanded }) => {
-  let expandedStyles = {};
-
-  if (isExpanded) {
-    expandedStyles = {
-      maxHeight: '1000px',
-      visibility: 'visible',
-    };
-  }
-
-  return {
-    maxWidth: '815px',
-    margin: '0 auto',
-    maxHeight: 0,
-    overflow: 'hidden',
-    transition: 'max-height 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
-    visibility: isExpanded ? 'visible' : 'initial',
-    ...expandedStyles,
-  }
-});
-
+import { StyledContent, StyledPlusIcon, sxStyles } from './VideoAccordion.styles';
 
 export const VideoAccordion = (props) => {
   const {
@@ -85,14 +24,14 @@ export const VideoAccordion = (props) => {
     isShowNextCategory,
   } = props;
 
-  const [nextCategory, setNextCategory] = useState({});
+  const [nextCategory, setNextCategory] = useState({ videoId: '' });
   const { t } = useTranslation([category.title, nextCategory.title]);
 
   useEffect(() => {
-    const nextItem = getNextEntity({ currentCategory: category, tabIndex, itemIndex  });
+    const nextItem = getNextEntity({ currentCategory: category, tabIndex, itemIndex });
 
     setNextCategory(nextItem);
-  },[category]);
+  }, [category]);
 
   const handleToggle = () => {
     onToggle({ [item.itemTitle]: !isExpanded });
@@ -100,7 +39,7 @@ export const VideoAccordion = (props) => {
 
   return (
     <Container sx={sxStyles.container}>
-      <Box tabIndex="0" role="button" aria-expanded={isExpanded ? "true" : "false"} onClick={handleToggle} >
+      <Box tabIndex="0" role="button" aria-expanded={isExpanded ? 'true' : 'false'} onClick={handleToggle}>
         <Box sx={sxStyles.accordionTitle}>
           <StyledPlusIcon isExpanded={isExpanded} />
 
@@ -118,13 +57,44 @@ export const VideoAccordion = (props) => {
           </Box>
 
           <NextBlock
-            videoId={t(nextCategory?.videoId, { ns: isShowNextCategory ? nextCategory.title : category.title })}
+            videoId={
+              t(nextCategory.videoId, {
+                ns: isShowNextCategory ? nextCategory.title : category.title,
+              })
+            }
             onNext={onNextItem}
-            nextCategoryTitle={t(nextCategory?.title, { ns: isShowNextCategory ? 'main' : category.title })}
+            nextCategoryTitle={t(nextCategory.title, {
+              ns: isShowNextCategory ? 'main' : category.title,
+            })}
           />
         </StyledContent>
       </Box>
 
     </Container>
-  )
-}
+  );
+};
+
+VideoAccordion.propTypes = {
+  tabIndex: PropTypes.number.isRequired,
+  itemIndex: PropTypes.number.isRequired,
+  isExpanded: PropTypes.bool.isRequired,
+  isShowNextCategory: PropTypes.bool.isRequired,
+  onToggle: PropTypes.func.isRequired,
+  onNextItem: PropTypes.func.isRequired,
+  category: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+  }).isRequired,
+
+  item: PropTypes.shape({
+    itemTitle: PropTypes.string.isRequired,
+  }).isRequired,
+
+  videoContent: PropTypes.shape({
+    videoId: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    links: PropTypes.arrayOf(PropTypes.shape({
+      labelLink: PropTypes.string,
+      link: PropTypes.string,
+    })),
+  }).isRequired,
+};

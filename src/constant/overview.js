@@ -1,6 +1,6 @@
-import overviewIcon from "assets/images/categories/overview.svg";
+import overviewIcon from 'assets/images/categories/overview.svg';
 
-import { categoryKeys, categoryTypes } from "./categories";
+import { categoryKeys, categoryTypes } from './categories';
 
 export const overview = {
   icon: overviewIcon,
@@ -19,5 +19,5 @@ export const overview = {
       labelLink: 'labelLink[2]',
       link: 'https://www.softserveinc.com/en-us',
     }
-  ]
-}
+  ],
+};

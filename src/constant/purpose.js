@@ -1,6 +1,6 @@
-import purposeIcon from "assets/images/categories/purpose.svg";
+import purposeIcon from 'assets/images/categories/purpose.svg';
 
-import { categoryKeys, categoryTypes } from "./categories";
+import { categoryKeys, categoryTypes } from './categories';
 
 export const purpose = {
   icon: purposeIcon,
@@ -19,5 +19,5 @@ export const purpose = {
       labelLink: 'labelLink[2]',
       link: 'https://www.softserveinc.com/en-us',
     }
-  ]
-}
+  ],
+};

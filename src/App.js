@@ -3,15 +3,15 @@ import {
   HashRouter,
   Route,
   Routes,
-} from "react-router-dom";
-import { CssBaseline, ThemeProvider } from "@mui/material";
+} from 'react-router-dom';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 
-import { theme } from "./theme";
+import { theme } from './theme';
 import './i18';
 import { BASE_URL, routers } from './constant';
-import { LangRedirect } from "./components/LangRedirect";
-import { Main } from "./pages/Main";
-import { CategoryPage } from "./pages/CategoryPage";
+import { LangRedirect } from './components/LangRedirect';
+import { Main } from './pages/Main';
+import { CategoryPage } from './pages/CategoryPage';
 
 import '@fontsource/open-sans/300.css';
 import '@fontsource/open-sans/500.css';
@@ -20,21 +20,21 @@ import '@fontsource/open-sans/700.css';
 const routeList = [
   {
     path: '/',
-    element: <LangRedirect /> ,
+    element: <LangRedirect />,
   },
   {
     path: BASE_URL,
-    element: <Main /> ,
+    element: <Main />,
   },
   {
     path: routers.category,
-    element: <CategoryPage /> ,
+    element: <CategoryPage />,
   },
   {
     path: '*',
-    element: <LangRedirect /> ,
-  },
-]
+    element: <LangRedirect />,
+  }
+];
 
 function App() {
   return (

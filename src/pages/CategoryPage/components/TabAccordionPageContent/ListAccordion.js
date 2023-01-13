@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
 
 import { VideoAccordion } from './VideoAccordion';
@@ -7,8 +8,8 @@ export const ListAccordion = (props) => {
   const {
     tabData,
     category,
-    onNextCategory,
     accordionList,
+    onNextCategory,
     onToggleAccordion,
   } = props;
 
@@ -52,7 +53,7 @@ export const ListAccordion = (props) => {
             [category.tabs[tabData.index].list[index + 1].itemTitle]: true,
           };
 
-         onToggleAccordion(updatedList);
+          onToggleAccordion(updatedList);
         };
 
         const videoContent = {
@@ -81,4 +82,44 @@ export const ListAccordion = (props) => {
       })}
     </>
   );
+};
+
+ListAccordion.propTypes = {
+  onNextCategory: PropTypes.func.isRequired,
+  onToggleAccordion: PropTypes.func.isRequired,
+  tabData: PropTypes.shape({
+    index: PropTypes.number.isRequired,
+    currentValue: PropTypes.number.isRequired,
+    setValue: PropTypes.func.isRequired,
+  }).isRequired,
+
+  accordionList: PropTypes.shape({
+    id: PropTypes.bool,
+  }).isRequired,
+
+  category: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    key: PropTypes.string.isRequired,
+
+    tabs: PropTypes.arrayOf(
+      PropTypes.shape({
+        tabTitle: PropTypes.string.isRequired,
+
+        list: PropTypes.arrayOf(
+          PropTypes.shape({
+            itemTitle: PropTypes.string.isRequired,
+            videoId: PropTypes.string.isRequired,
+            videoDescription: PropTypes.string.isRequired,
+
+            links: PropTypes.arrayOf(
+              PropTypes.shape({
+                link: PropTypes.string.isRequired,
+                labelLink: PropTypes.string.isRequired,
+              }),
+            ).isRequired,
+          }),
+        ).isRequired,
+      }),
+    ).isRequired,
+  }).isRequired,
 };

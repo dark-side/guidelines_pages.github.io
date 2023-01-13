@@ -1,11 +1,12 @@
 import React from 'react';
-import { Box, Button, Typography } from "@mui/material";
-import { useTranslation } from "react-i18next";
+import PropTypes from 'prop-types';
+import { Box, Button, Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 import arrowIcon from 'assets/images/r-arrow.svg';
 import playIcon from 'assets/images/play.svg';
 
-import { sxStyles } from "./NextBlock.styles";
+import { sxStyles } from './NextBlock.styles';
 
 export const NextBlock = (props) => {
   const { videoId, nextCategoryTitle, onNext } = props;
@@ -21,12 +22,13 @@ export const NextBlock = (props) => {
       <Box sx={sxStyles.preview} onClick={onNext}>
         <img src={`https://i.ytimg.com/vi_webp/${videoId}/mqdefault.webp`} alt="video thumbnail" />
 
-        <img src={playIcon} alt="play icon"/>
+        <img src={playIcon} alt="play icon" />
       </Box>
 
       <Box sx={sxStyles.text}>
         <Typography component="span" variant="h3" fontWeight={500}>
-          {t('next')}:
+          {t('next')}
+          :
         </Typography>
         &nbsp;
         <Typography component="span" variant="h3" fontWeight={700}>
@@ -39,10 +41,16 @@ export const NextBlock = (props) => {
         onClick={onNext}
         variant="contained"
         size="large"
-        endIcon={<img src={arrowIcon} alt="watch"/>}
+        endIcon={<img src={arrowIcon} alt="watch" />}
       >
         {t('watch')}
       </Button>
     </Box>
-  )
-}
+  );
+};
+
+NextBlock.propTypes = {
+  videoId: PropTypes.string.isRequired,
+  nextCategoryTitle: PropTypes.string.isRequired,
+  onNext: PropTypes.func.isRequired,
+};

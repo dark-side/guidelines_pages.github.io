@@ -1,5 +1,5 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 
 import mainEn from 'translations/en/main.json';
 import commonEn from 'translations/en/common.json';
@@ -78,11 +78,11 @@ i18n
         contribute: contributeUa,
         thanks: thanksUa,
         donate: donateUa,
-      }
+      },
     },
-    lng: "en",
-    fallbackLng: "en",
+    lng: 'en',
+    fallbackLng: 'en',
     interpolation: {
-      escapeValue: false
+      escapeValue: false,
     },
   });

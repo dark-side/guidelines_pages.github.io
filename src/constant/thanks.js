@@ -1,6 +1,6 @@
-import thanksIcon from "assets/images/categories/thanks.svg";
+import thanksIcon from 'assets/images/categories/thanks.svg';
 
-import { categoryKeys, categoryTypes } from "./categories";
+import { categoryKeys, categoryTypes } from './categories';
 
 export const thanks = {
   icon: thanksIcon,
@@ -19,5 +19,5 @@ export const thanks = {
       labelLink: 'labelLink[2]',
       link: 'https://www.softserveinc.com/en-us',
     }
-  ]
-}
+  ],
+};

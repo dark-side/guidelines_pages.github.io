@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from 'react-router-dom';
 
-import { getBaseUrl } from "constant";
+import { getBaseUrl } from 'constant';
 
 export const LangRedirect = () => {
   const { lang } = useParams();
@@ -14,6 +14,6 @@ export const LangRedirect = () => {
   }, [lang]);
 
   return (
-    <div>test</div>
-  )
+    <div />
+  );
 };

@@ -1,6 +1,6 @@
-import deliveryIcon from "assets/images/categories/delivery.svg";
+import deliveryIcon from 'assets/images/categories/delivery.svg';
 
-import { categoryKeys, categoryTypes } from "./categories";
+import { categoryKeys, categoryTypes } from './categories';
 
 export const delivery = {
   icon: deliveryIcon,
@@ -19,5 +19,5 @@ export const delivery = {
       labelLink: 'labelLink[2]',
       link: 'https://www.softserveinc.com/en-us',
     }
-  ]
-}
+  ],
+};

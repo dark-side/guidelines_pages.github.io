@@ -7,8 +7,7 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
 
-import { sxStyles } from '../Tabs/Tabs.styles';
-import { StyledDescription } from './VideoContent.styles';
+import { StyledDescription, sxStyles } from './VideoContent.styles';
 
 export const VideoContent = (props) => {
   const { playerOpts, content } = props;

@@ -13,7 +13,11 @@ export const architecture = {
   links: [
     {
       labelLink: 'labelLink[1]',
-      link: 'https://www.softserveinc.com/en-us',
+      link: 'https://github.com/dark-side/sports-hub?tab=readme-ov-file#architecture-vision',
+    },
+    {
+      labelLink: 'labelLink[2]',
+      link: 'https://github.com/dark-side/sports-hub',
     }
   ],
 };

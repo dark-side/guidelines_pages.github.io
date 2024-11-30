@@ -13,11 +13,7 @@ export const howToUse = {
   links: [
     {
       labelLink: 'labelLink[1]',
-      link: 'https://www.softserveinc.com/en-us',
-    },
-    {
-      labelLink: 'labelLink[2]',
-      link: 'https://www.softserveinc.com/en-us',
+      link: 'https://github.com/dark-side/sports-hub',
     }
   ],
 };

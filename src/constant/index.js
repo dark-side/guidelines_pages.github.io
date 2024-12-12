@@ -34,19 +34,19 @@ export const getBaseUrl = (lang) => `${lang}`;
 export const getCategoryLink = (lang, cat) => `${lang}/${cat}`;
 
 export const categoriesInfo = [
+  overview,
   purpose,
   howToUse,
-  overview,
   roadmap,
   architecture,
-  delivery,
+  contribute,
+  thanks,
   web,
   desktop,
   mobile,
   dataCat,
-  project,
-  report,
-  contribute,
-  thanks,
-  donate
+  // project,
+  // report,
+  // delivery,
+  // donate
 ];

@@ -1,6 +1,7 @@
 {
-  "videoId": "J4_oNb0wVcs",
-  "videoTitle": "",
-  "videoDescription": "These days in the world filled with different kinds of news presented on various websites it’s rather hard and time consuming to find the information we need. When it comes to sports, fans spend a fair amount of time browsing the web in order to find hot news relevant to their best-loved kind of sports or their favorite league or team",
-  "labelLink[1]": "Title 1"
+  "videoId": "GRXH80h8-HM",
+  "videoTitle": "Architecture",
+  "videoDescription": "In the fifth video – Architecture Vision – we’ll analyze the concept of an architecture vision, why is it important, what does it help us achieve, and what parts does it consist of.\n\n We'll cover the main goals and features of the solution, break it down into different levels of complexity, and go over the operational plan, which lists key activities and targets. You'll learn about architectural drivers, key risks, and the technology stack, plus see how our news aggregator feature works to keep you updated on all things sports.",
+  "labelLink[1]": "Architecture vision:",
+  "labelLink[2]": "Sports Hub документація:"
 }

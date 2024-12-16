@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/guidelines_pages.github.io/static/css/main.ef7db56a.css",
-    "main.js": "/guidelines_pages.github.io/static/js/main.d3219626.js",
+    "main.js": "/guidelines_pages.github.io/static/js/main.17e43180.js",
     "static/media/oksana.png": "/guidelines_pages.github.io/static/media/oksana.7fe02ab0f8b094fe2fc5.png",
     "static/media/banner-bg.png": "/guidelines_pages.github.io/static/media/banner-bg.9e6277f54cb338d97aef.png",
     "static/media/open-sans-all-500-normal.woff": "/guidelines_pages.github.io/static/media/open-sans-all-500-normal.97662e43720c573ecf0b.woff",
@@ -54,10 +54,10 @@
     "static/media/play.svg": "/guidelines_pages.github.io/static/media/play.f86244f4ddde52848fa11cbde06a7ca0.svg",
     "static/media/home.svg": "/guidelines_pages.github.io/static/media/home.cd688ea1163b4ca3f6f01e2de17a7fc7.svg",
     "main.ef7db56a.css.map": "/guidelines_pages.github.io/static/css/main.ef7db56a.css.map",
-    "main.d3219626.js.map": "/guidelines_pages.github.io/static/js/main.d3219626.js.map"
+    "main.17e43180.js.map": "/guidelines_pages.github.io/static/js/main.17e43180.js.map"
   },
   "entrypoints": [
     "static/css/main.ef7db56a.css",
-    "static/js/main.d3219626.js"
+    "static/js/main.17e43180.js"
   ]
 }

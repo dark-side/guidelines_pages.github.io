@@ -43,8 +43,8 @@ export const categoriesInfo = [
   thanks,
   web,
   desktop,
-  mobile,
-  dataCat,
+  mobile
+  // dataCat,
   // project,
   // report,
   // delivery,

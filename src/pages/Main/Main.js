@@ -10,6 +10,5 @@ export const Main = () => (
 
     <Categories />
 
-    <Contributors />
   </PageLayout>
 );

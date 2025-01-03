@@ -73,7 +73,7 @@ export const ListAccordion = (props) => {
             itemIndex={index}
             category={category}
             videoContent={videoContent}
-            isExpanded={accordionList[listItem.itemTitle]}
+            isExpanded={accordionList[listItem.itemTitle] || false}
             onToggle={onToggleAccordion}
             onNextItem={handleNextItem}
             isShowNextCategory={isShowNextCategory}

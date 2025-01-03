@@ -25,7 +25,7 @@ export const VideoAccordion = (props) => {
   } = props;
 
   const [nextCategory, setNextCategory] = useState({ videoId: '' });
-  const { t } = useTranslation([category.title, nextCategory.title]);
+  const { t } = useTranslation([category.title, nextCategory ? nextCategory.title : '']);
 
   useEffect(() => {
     const nextItem = getNextEntity({ currentCategory: category, tabIndex, itemIndex });
@@ -39,8 +39,8 @@ export const VideoAccordion = (props) => {
 
   return (
     <Container sx={sxStyles.container}>
-      <Box tabIndex="0" role="button" aria-expanded={isExpanded ? 'true' : 'false'} onClick={handleToggle}>
-        <Box sx={sxStyles.accordionTitle}>
+      <Box tabIndex="0" role="button" aria-expanded={isExpanded ? 'true' : 'false'}>
+        <Box sx={sxStyles.accordionTitle} onClick={handleToggle}>
           <StyledPlusIcon isExpanded={isExpanded} />
 
           <Typography component="div">
@@ -58,12 +58,12 @@ export const VideoAccordion = (props) => {
 
           <NextBlock
             videoId={
-              t(nextCategory.videoId, {
-                ns: isShowNextCategory ? nextCategory.title : category.title,
+              t(nextCategory ? nextCategory.videoId : '', {
+                ns: nextCategory ? nextCategory.title : category.title,
               })
             }
             onNext={onNextItem}
-            nextCategoryTitle={t(nextCategory.title, {
+            nextCategoryTitle={t(nextCategory ? nextCategory.title : '', {
               ns: isShowNextCategory ? 'main' : category.title,
             })}
           />
